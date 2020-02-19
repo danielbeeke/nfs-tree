@@ -11,7 +11,13 @@
     </head>
 
     <body lang="nl">
-        <nfs-tree id="nfs-tree" />
+        <nfs-tree id="nfs-tree" style="height: 50vh;"/>
+        <script>
+            let folderSelector = document.querySelector('#nfs-tree');
+            folderSelector.addEventListener('select', event => {
+              console.log(event)
+            });
+        </script>
     </body>
 
 </html>

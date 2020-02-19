@@ -8,7 +8,7 @@ class NfsTree extends HTMLElement {
   constructor() {
     super();
     this.handle = null;
-    this.tree = [];
+    this.slices = [];
   }
 
   /**
@@ -23,14 +23,17 @@ class NfsTree extends HTMLElement {
    * The method to (re)render the element via lighterHTML.
    */
   draw () {
-    this.setAttribute('deepest-depth', 0);
-
+    this.dataset.depth = this.slices.length.toString();
     render(this, html`
+    
     ${ 
       this.handle ?
-        this.template(this.tree) : 
-        html`<button onclick="${() => this.showFolderDialog()}">${folderIcon}</button>`
-    }`)
+        html`<div class="inner">
+            ${this.slices.map((slice, sliceIndex) => this.folderList(slice, sliceIndex))}
+        </div>` : 
+        html`<button class="select-folder" onclick="${() => this.showFolderDialog()}">${folderIcon}</button>`
+    }
+    `)
   }
 
   /**
@@ -38,7 +41,7 @@ class NfsTree extends HTMLElement {
    * @param handle
    * @returns {Promise<[]>}
    */
-  async getTreeStructure (handle) {
+  async getChildren (handle) {
     let branch = [];
     for await (const entry of handle.getEntries()) {
       branch.push({
@@ -50,46 +53,80 @@ class NfsTree extends HTMLElement {
 
   /**
    * A lighterHTML template
-   * @param tree
-   * @param depth
+   * @param slice
+   * @param sliceIndex
    * @returns {Hole}
    */
-  template (tree, depth = 0) {
-    let currentDeepestDepth = parseInt(this.getAttribute('deepest-depth')) || 0;
+  folderList (slice, sliceIndex) {
+    let shouldBeRemoved = false;
 
-    if (currentDeepestDepth < depth) {
-      this.setAttribute('deepest-depth', depth.toString());
+    for (let i = sliceIndex; i > 0; i--) {
+      if (this.slices[i - 1] && this.slices[i - 1].some(leaf => leaf.remove)) {
+        shouldBeRemoved = true;
+      }
     }
 
+    let backButton = html`
+    <li class="item back" onclick="${() => this.closeSlice(sliceIndex)}">
+        <span class="title"><span class="back-arrow">◀</span> back</span>
+    </li>`;
+
     return html`
-      <ul class="list">
-      ${tree.map(leaf => html`
-          <li class="item ${leaf.handle.isDirectory ? 'directory' : 'file'}">
-            <span class="title" onclick="${() => this.toggleActive(leaf, tree)}">
+      <ul class="list ${shouldBeRemoved ? 'remove' : ''}">
+        ${sliceIndex > 0 ? backButton : ''}
+        ${slice.map(leaf => html`
+          <li class="item ${leaf.handle.isDirectory ? 'directory' : 'file'} ${leaf.active ? 'active' : ''}" 
+          onclick="${() => this.toggleActive(leaf, sliceIndex + 1)}">
+            <span class="title">
               ${leaf.handle.name}
-              ${leaf.handle.isDirectory ? html`<span>▶</span>` : ''}
+              ${leaf.handle.isDirectory ? html`<span class="arrow">▶</span>` : ''}
             </span>
-            ${leaf.children && leaf.active ? this.template(leaf.children, depth + 1) : ''}
           </li>
-      `)}
+        `)}
       </ul>`
+  }
+
+  closeSlice (index) {
+    this.slices[index - 1][0].remove = true;
+    this.draw();
+    setTimeout(() => {
+      this.slices.splice(index);
+      delete this.slices[index - 1][0].remove;
+      this.slices[index - 1].forEach(leaf => delete leaf.active);
+      this.draw();
+    }, 350);
   }
 
   /**
    * Makes a leaf active and fetcher the leafs children.
    * @param leaf
-   * @param siblings
+   * @param index
    * @returns {Promise<void>}
    */
-  async toggleActive (leaf, siblings) {
-    siblings.forEach(sibling => {
-      if (sibling !== leaf) sibling.active = false
-    });
-    leaf.active = !leaf.active;
-    if (typeof leaf.children === 'undefined') {
-      leaf.children = leaf.handle.isDirectory ? await this.getTreeStructure(leaf.handle) : [];
+  async toggleActive (leaf, index) {
+    let continueFlow = async () => {
+      delete leaf.remove;
+      this.slices.splice(index);
+      if (leaf.handle.isDirectory && !leaf.active) this.slices[index] = await this.getChildren(leaf.handle);
+      this.slices[index - 1].forEach(innerLeaf => innerLeaf !== leaf ? innerLeaf.active = false : false);
+      leaf.active = !leaf.active;
+      this.draw();
+
+      if (leaf.handle.isFile) {
+        this.dispatchEvent(new CustomEvent('select', {
+          detail: leaf.handle
+        }));
+      }
+    };
+
+    if (this.slices[index - 1].some(innerLeaf => innerLeaf.active)) {
+      leaf.remove = true;
+      this.draw();
+      setTimeout(continueFlow, 350)
     }
-    this.draw();
+    else {
+      await continueFlow();
+    }
   }
 
   /**
@@ -102,16 +139,14 @@ class NfsTree extends HTMLElement {
     }).then(handle => {
       this.handle = handle;
       this.draw();
-      this.getTreeStructure(handle)
-      .then(tree => {
-        this.tree = tree;
-        this.setAttribute('handle', 'loaded');
+      this.getChildren(handle)
+      .then(children => {
+        this.slices = [children];
         this.draw();
       });
     })
     .catch(exception => {
       this.handle = null;
-      this.setAttribute('handle', 'empty');
       this.draw();
     })
   }

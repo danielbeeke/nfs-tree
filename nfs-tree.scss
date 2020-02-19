@@ -1,48 +1,127 @@
-$width: 200px;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@mixin background {
+  border-radius: 12px;
+  background: #bbef68;
+  box-shadow:  20px 20px 60px #aede61,
+  -20px -20px 60px #c8ff6f;
+}
+
+$width: 240px;
 $padding: 20px;
+$color-active: #4c6439;
+$color-border: #cde0f1;
+$color-background: #bbef68;
+$speed: .4s;
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: $color-background;
+}
 
 nfs-tree {
-  display: block;
   height: 100%;
-  max-height: 100vh;
-  overflow-y: scroll;
+  width: $width;
+  display: flex;
+  overflow: hidden;
   position: relative;
+  font-family: 'Roboto', sans-serif;
+  justify-content: flex-end;
+  border-radius: 12px;
+  @include background;
 
-  &[handle="empty"] {
+  .select-folder {
+    flex: 1 1 auto;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 
+    svg {
+      fill: $color-active;
+    }
   }
 
-  &[handle="loaded"] {
-
+  .inner {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 1000vw;
   }
 
   .list {
+    max-height: 100%;
+    overflow-y: scroll;
     top: 0;
-    padding: 0;
+    padding: 10px 0;
     margin: 0;
-    //width: $width;
+    width: $width;
+    animation: appear $speed ease-in-out;
+
+    &.remove {
+      animation: disappear $speed ease-in-out;
+    }
   }
 
-  > .list .list {
-    left: $width;
-  }
-
-  .list > .item {
+  .item {
     list-style: none;
+    width: $width;
+    cursor: pointer;
+    transition: background-color $speed ease-in-out, color $speed ease-in-out;
+
+    .title {
+      display: flex;
+      padding: 8px 20px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .arrow {
+      font-size: 10px;
+      margin-left: 6px;
+    }
+
+    &.back {
+      font-style: italic;
+      color: $color-active;
+      position: sticky;
+      top: 0;
+
+      .title {
+        justify-content: flex-start;
+      }
+    }
+
+    .back-arrow {
+      font-size: 10px;
+      margin-right: 6px;
+      color: $color-active;
+    }
+
+    &.active {
+      background-color: $color-active;
+      color: white;
+
+      .arrow {
+        color: white;
+      }
+    }
   }
 
-  .title {
-    display: block;
-    padding: 3px;
-  }
+}
 
-  > .list {
+@keyframes appear {
+  0% { width: 0; opacity: 0; }
+  100% { width: $width; ; opacity: 1; }
+}
 
-    transition: transform .4s ease-in-out;
-  }
-
-  @for $i from 1 through 10 {
-    //&[deepest-depth="#{$i}"] > .list { transform: translateX(- $width * $i); }
-  }
-
+@keyframes disappear {
+  0% { width: $width; opacity: 1; }
+  100% { width: 0; opacity: 0; }
 }

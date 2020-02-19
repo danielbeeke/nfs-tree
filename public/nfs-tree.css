@@ -1,25 +1,111 @@
-nfs-tree {
-  display: block;
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+html {
   height: 100%;
-  max-height: 100vh;
-  overflow-y: scroll;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #bbef68;
+}
+
+nfs-tree {
+  height: 100%;
+  width: 240px;
+  display: flex;
+  overflow: hidden;
   position: relative;
+  font-family: "Roboto", sans-serif;
+  justify-content: flex-end;
+  border-radius: 12px;
+  border-radius: 12px;
+  background: #bbef68;
+  box-shadow: 20px 20px 60px #aede61, -20px -20px 60px #c8ff6f;
+}
+nfs-tree .select-folder {
+  flex: 1 1 auto;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+nfs-tree .select-folder svg {
+  fill: #4c6439;
+}
+nfs-tree .inner {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 1000vw;
 }
 nfs-tree .list {
+  max-height: 100%;
+  overflow-y: scroll;
   top: 0;
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
+  width: 240px;
+  animation: appear 0.4s ease-in-out;
 }
-nfs-tree > .list .list {
-  left: 200px;
+nfs-tree .list.remove {
+  animation: disappear 0.4s ease-in-out;
 }
-nfs-tree .list > .item {
+nfs-tree .item {
   list-style: none;
+  width: 240px;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }
-nfs-tree .title {
-  display: block;
-  padding: 3px;
+nfs-tree .item .title {
+  display: flex;
+  padding: 8px 20px;
+  align-items: center;
+  justify-content: space-between;
 }
-nfs-tree > .list {
-  transition: transform 0.4s ease-in-out;
+nfs-tree .item .arrow {
+  font-size: 10px;
+  margin-left: 6px;
+}
+nfs-tree .item.back {
+  font-style: italic;
+  color: #4c6439;
+  position: sticky;
+  top: 0;
+}
+nfs-tree .item.back .title {
+  justify-content: flex-start;
+}
+nfs-tree .item .back-arrow {
+  font-size: 10px;
+  margin-right: 6px;
+  color: #4c6439;
+}
+nfs-tree .item.active {
+  background-color: #4c6439;
+  color: white;
+}
+nfs-tree .item.active .arrow {
+  color: white;
+}
+
+@keyframes appear {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 240px;
+    opacity: 1;
+  }
+}
+@keyframes disappear {
+  0% {
+    width: 240px;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
 }
