@@ -1,0 +1,48 @@
+$width: 200px;
+$padding: 20px;
+
+nfs-tree {
+  display: block;
+  height: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+
+  &[handle="empty"] {
+
+  }
+
+  &[handle="loaded"] {
+
+  }
+
+  .list {
+    top: 0;
+    padding: 0;
+    margin: 0;
+    //width: $width;
+  }
+
+  > .list .list {
+    left: $width;
+  }
+
+  .list > .item {
+    list-style: none;
+  }
+
+  .title {
+    display: block;
+    padding: 3px;
+  }
+
+  > .list {
+
+    transition: transform .4s ease-in-out;
+  }
+
+  @for $i from 1 through 10 {
+    //&[deepest-depth="#{$i}"] > .list { transform: translateX(- $width * $i); }
+  }
+
+}

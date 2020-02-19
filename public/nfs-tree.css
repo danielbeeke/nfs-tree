@@ -1,0 +1,25 @@
+nfs-tree {
+  display: block;
+  height: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+}
+nfs-tree .list {
+  top: 0;
+  padding: 0;
+  margin: 0;
+}
+nfs-tree > .list .list {
+  left: 200px;
+}
+nfs-tree .list > .item {
+  list-style: none;
+}
+nfs-tree .title {
+  display: block;
+  padding: 3px;
+}
+nfs-tree > .list {
+  transition: transform 0.4s ease-in-out;
+}
