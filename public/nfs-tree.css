@@ -9,6 +9,7 @@ body {
   align-items: center;
   height: 100%;
   background: #bbef68;
+  color: #383838;
 }
 
 nfs-tree {
@@ -43,10 +44,11 @@ nfs-tree .list {
   max-height: 100%;
   overflow-y: scroll;
   top: 0;
-  padding: 10px 0;
+  padding: 0;
   margin: 0;
   width: 240px;
   animation: appear 0.4s ease-in-out;
+  border-top: 20px solid transparent;
 }
 nfs-tree .list.remove {
   animation: disappear 0.4s ease-in-out;
@@ -64,7 +66,7 @@ nfs-tree .item .title {
   justify-content: space-between;
 }
 nfs-tree .item .arrow {
-  font-size: 10px;
+  font-size: 8px;
   margin-left: 6px;
 }
 nfs-tree .item.back {
@@ -72,12 +74,13 @@ nfs-tree .item.back {
   color: #4c6439;
   position: sticky;
   top: 0;
+  background: #bbef68;
 }
 nfs-tree .item.back .title {
   justify-content: flex-start;
 }
 nfs-tree .item .back-arrow {
-  font-size: 10px;
+  font-size: 7px;
   margin-right: 6px;
   color: #4c6439;
 }
