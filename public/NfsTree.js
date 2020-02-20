@@ -30,9 +30,9 @@ class NfsTree extends HTMLElement {
       this.handle ?
         html`<div class="inner">
             ${this.slices.map((slice, sliceIndex) => this.folderList(slice, sliceIndex))}
-        </div>` : 
-        html`<button class="select-folder" onclick="${() => this.showFolderDialog()}">${folderIcon}</button>`
+        </div>` : ''
     }
+    <button class="select-folder" onclick="${() => this.showFolderDialog()}">${folderIcon}</button>
     `)
   }
 
@@ -48,6 +48,7 @@ class NfsTree extends HTMLElement {
         handle: entry,
       });
     }
+
     return branch;
   }
 
@@ -66,14 +67,20 @@ class NfsTree extends HTMLElement {
       }
     }
 
+    let header = this.slices[sliceIndex - 1] ? this.slices[sliceIndex - 1].find(leaf => leaf.active) : false;
+    let backTitle = header ? header.handle.name : this.handle.name;
+
     let backButton = html`
-    <li class="item back" onclick="${() => this.closeSlice(sliceIndex)}">
-        <span class="title"><span class="back-arrow">◀</span> back</span>
+    <li class="back">
+        <span class="title">
+            ${backTitle}
+            ${sliceIndex > 0 ? html`<span onclick="${() => this.closeSlice(sliceIndex)}" class="arrow">◀</span>` : ''}
+        </span>
     </li>`;
 
     return html`
       <ul class="list ${shouldBeRemoved ? 'remove' : ''}">
-        ${sliceIndex > 0 ? backButton : ''}
+        ${backButton}
         ${slice.map(leaf => html`
           <li class="item ${leaf.handle.isDirectory ? 'directory' : 'file'} ${leaf.active ? 'active' : ''}" 
           onclick="${() => this.toggleActive(leaf, sliceIndex + 1)}">
@@ -86,6 +93,10 @@ class NfsTree extends HTMLElement {
       </ul>`
   }
 
+  /**
+   * Removes a slide, eg. closes a folder
+   * @param index
+   */
   closeSlice (index) {
     this.slices[index - 1][0].remove = true;
     this.draw();
@@ -119,7 +130,7 @@ class NfsTree extends HTMLElement {
       }
     };
 
-    if (this.slices[index - 1].some(innerLeaf => innerLeaf.active)) {
+    if (this.slices[index - 1].some(innerLeaf => innerLeaf.active && innerLeaf.handle.isDirectory)) {
       leaf.remove = true;
       this.draw();
       setTimeout(continueFlow, 350)
@@ -142,11 +153,13 @@ class NfsTree extends HTMLElement {
       this.getChildren(handle)
       .then(children => {
         this.slices = [children];
+        this.setAttribute('handle', 'filled');
         this.draw();
       });
     })
     .catch(exception => {
       this.handle = null;
+      this.setAttribute('handle', 'empty');
       this.draw();
     })
   }

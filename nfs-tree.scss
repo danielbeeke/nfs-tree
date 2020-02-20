@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 @mixin background {
-  border-radius: 12px;
-  background: #bbef68;
-  box-shadow:  20px 20px 60px #aede61,
-  -20px -20px 60px #c8ff6f;
+  border-radius: 6px;
+  background: $color-background;
+  box-shadow:  20px 20px 60px $color-gradient,
+  -20px -20px 60px $color-gradient3;
 }
 
 $width: 240px;
+$bezier: cubic-bezier(.74,.11,.39,.86);
 $padding: 20px;
-$color-active: #4c6439;
-$color-border: #cde0f1;
-$color-background: #bbef68;
+$color-background: #efb42c;
+$color-border: lighten($color-background, 40);
+$color-active: desaturate(darken($color-background, 20), 20);
+$color-gradient: desaturate(darken($color-background, 10), 20);
+$color-gradient2: lighten($color-background, 10);
+$color-gradient3: lighten($color-background, 5);
+$color-text: #383838;
 $speed: .4s;
 
 html {
@@ -23,8 +28,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 0;
+  margin: 0;
   background: $color-background;
-  color: #383838;
+  color: $color-text;
 }
 
 nfs-tree {
@@ -39,15 +46,53 @@ nfs-tree {
   @include background;
 
   .select-folder {
-    flex: 1 1 auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
     appearance: none;
+    outline: none;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    transition: all $speed $bezier, opacity .1s $bezier;
 
     svg {
       fill: $color-active;
+      transition: all $speed $bezier;
+      width: 50px;
     }
+
+    &:hover {
+      background-color: $color-active;
+
+      svg {
+        fill: $color-background;
+      }
+    }
+  }
+
+  &[handle="filled"] {
+    .select-folder {
+      height: 50px;
+      width: 50px;
+      opacity: 0;
+      transform: translate(-8px, 13px);
+      border-radius: 50%;
+      pointer-events: none;
+
+      svg {
+        transform: translateY(2px);
+        width: 24px;
+      }
+    }
+  }
+
+  &[handle="filled"][data-depth="1"] .select-folder {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all $speed $bezier;
   }
 
   .inner {
@@ -58,16 +103,93 @@ nfs-tree {
 
   .list {
     max-height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     top: 0;
+    scrollbar-width: none;
     padding: 0;
     margin: 0;
     width: $width;
-    animation: appear $speed ease-in-out;
-    border-top: 20px solid transparent;
+    animation: appear $speed $bezier;
 
     &.remove {
-      animation: disappear $speed ease-in-out;
+      animation: disappear $speed $bezier;
+    }
+
+    .item:nth-child(2) {
+      margin-top: 30px;
+    }
+
+    .item:last-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(white, .2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $color-active;
+  }
+
+  .back {
+    color: $color-active;
+    position: sticky;
+    top: 20px;
+    padding-bottom: 15px;
+    cursor: default;
+    background: $color-background;
+    list-style: none;
+    font-style: italic;
+    width: $width;
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+    transition: background-color $speed $bezier, color $speed $bezier;
+    border-bottom: 1px solid rgba($color-active, .2);
+
+    &:after {
+      content: '';
+      display: block;
+      background-color: $color-background;
+      height: 20px;
+      width: 100%;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+    }
+
+    .title {
+      display: flex;
+      padding: 0 20px;
+      flex: 1 1 auto;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .arrow {
+      font-size: 8px;
+      height: 35px;
+      line-height: 35px;
+      width: 27px;
+      padding-left: 20px;
+      cursor: pointer;
+      font-style: normal;
+      margin-left: auto;
+      margin-right: -20px;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+
+      &:hover {
+        background-color: $color-active;
+        color: white;
+      }
     }
   }
 
@@ -75,7 +197,7 @@ nfs-tree {
     list-style: none;
     width: $width;
     cursor: pointer;
-    transition: background-color $speed ease-in-out, color $speed ease-in-out;
+    transition: background-color $speed $bezier, color $speed $bezier;
 
     .title {
       display: flex;
@@ -89,31 +211,10 @@ nfs-tree {
       margin-left: 6px;
     }
 
-    &.back {
-      font-style: italic;
-      color: $color-active;
-      position: sticky;
-      top: 0;
-      background: #bbef68;
-
-      .title {
-        justify-content: flex-start;
-      }
-    }
-
-    .back-arrow {
-      font-size: 7px;
-      margin-right: 6px;
-      color: $color-active;
-    }
-
+    &:hover,
     &.active {
       background-color: $color-active;
       color: white;
-
-      .arrow {
-        color: white;
-      }
     }
   }
 

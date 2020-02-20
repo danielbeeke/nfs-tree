@@ -8,7 +8,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: #bbef68;
+  padding: 0;
+  margin: 0;
+  background: #efb42c;
   color: #383838;
 }
 
@@ -21,19 +23,50 @@ nfs-tree {
   font-family: "Roboto", sans-serif;
   justify-content: flex-end;
   border-radius: 12px;
-  border-radius: 12px;
-  background: #bbef68;
-  box-shadow: 20px 20px 60px #aede61, -20px -20px 60px #c8ff6f;
+  border-radius: 6px;
+  background: #efb42c;
+  box-shadow: 20px 20px 60px #c09228, -20px -20px 60px #f1bc44;
 }
 nfs-tree .select-folder {
-  flex: 1 1 auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
   appearance: none;
+  outline: none;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), opacity 0.1s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .select-folder svg {
-  fill: #4c6439;
+  fill: #96721f;
+  transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+  width: 50px;
+}
+nfs-tree .select-folder:hover {
+  background-color: #96721f;
+}
+nfs-tree .select-folder:hover svg {
+  fill: #efb42c;
+}
+nfs-tree[handle=filled] .select-folder {
+  height: 50px;
+  width: 50px;
+  opacity: 0;
+  transform: translate(-8px, 13px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+nfs-tree[handle=filled] .select-folder svg {
+  transform: translateY(2px);
+  width: 24px;
+}
+nfs-tree[handle=filled][data-depth="1"] .select-folder {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .inner {
   display: flex;
@@ -42,22 +75,89 @@ nfs-tree .inner {
 }
 nfs-tree .list {
   max-height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   top: 0;
+  scrollbar-width: none;
   padding: 0;
   margin: 0;
   width: 240px;
-  animation: appear 0.4s ease-in-out;
-  border-top: 20px solid transparent;
+  animation: appear 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .list.remove {
-  animation: disappear 0.4s ease-in-out;
+  animation: disappear 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+}
+nfs-tree .list .item:nth-child(2) {
+  margin-top: 30px;
+}
+nfs-tree .list .item:last-child {
+  margin-bottom: 20px;
+}
+nfs-tree ::-webkit-scrollbar {
+  width: 6px;
+}
+nfs-tree ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+}
+nfs-tree ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #96721f;
+}
+nfs-tree .back {
+  color: #96721f;
+  position: sticky;
+  top: 20px;
+  padding-bottom: 15px;
+  cursor: default;
+  background: #efb42c;
+  list-style: none;
+  font-style: italic;
+  width: 240px;
+  height: 35px;
+  display: flex;
+  justify-content: flex-end;
+  transition: background-color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+  border-bottom: 1px solid rgba(150, 114, 31, 0.2);
+}
+nfs-tree .back:after {
+  content: "";
+  display: block;
+  background-color: #efb42c;
+  height: 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+}
+nfs-tree .back .title {
+  display: flex;
+  padding: 0 20px;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: flex-start;
+}
+nfs-tree .back .arrow {
+  font-size: 8px;
+  height: 35px;
+  line-height: 35px;
+  width: 27px;
+  padding-left: 20px;
+  cursor: pointer;
+  font-style: normal;
+  margin-left: auto;
+  margin-right: -20px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+nfs-tree .back .arrow:hover {
+  background-color: #96721f;
+  color: white;
 }
 nfs-tree .item {
   list-style: none;
   width: 240px;
   cursor: pointer;
-  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  transition: background-color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .item .title {
   display: flex;
@@ -69,26 +169,8 @@ nfs-tree .item .arrow {
   font-size: 8px;
   margin-left: 6px;
 }
-nfs-tree .item.back {
-  font-style: italic;
-  color: #4c6439;
-  position: sticky;
-  top: 0;
-  background: #bbef68;
-}
-nfs-tree .item.back .title {
-  justify-content: flex-start;
-}
-nfs-tree .item .back-arrow {
-  font-size: 7px;
-  margin-right: 6px;
-  color: #4c6439;
-}
-nfs-tree .item.active {
-  background-color: #4c6439;
-  color: white;
-}
-nfs-tree .item.active .arrow {
+nfs-tree .item:hover, nfs-tree .item.active {
+  background-color: #96721f;
   color: white;
 }
 

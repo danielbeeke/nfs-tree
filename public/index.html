@@ -8,10 +8,20 @@
         <link rel="icon" href="data:;base64,iVBORwOKGO=" />
         <script type="module" src="NfsTree.js"></script>
         <link rel="stylesheet" href="nfs-tree.css"/>
+        <style>
+            #nfs-tree {
+                transition: height .4s ease-in-out;
+                height: 200px;
+            }
+
+            #nfs-tree[handle="filled"] {
+                height: 50vh;
+            }
+        </style>
     </head>
 
     <body lang="nl">
-        <nfs-tree id="nfs-tree" style="height: 50vh;"/>
+        <nfs-tree id="nfs-tree" />
         <script>
             let folderSelector = document.querySelector('#nfs-tree');
             folderSelector.addEventListener('select', event => {
