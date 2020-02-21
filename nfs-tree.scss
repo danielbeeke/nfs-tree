@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
+@import "file-icons";
 @mixin background {
   border-radius: 6px;
   background: $color-background;
@@ -57,11 +57,11 @@ nfs-tree {
     border: none;
     cursor: pointer;
     transition: all $speed $bezier, opacity .1s $bezier;
+    z-index: 3;
 
     svg {
       fill: $color-active;
       transition: all $speed $bezier;
-      width: 50px;
     }
 
     &:hover {
@@ -75,16 +75,17 @@ nfs-tree {
 
   &[handle="filled"] {
     .select-folder {
-      height: 50px;
-      width: 50px;
+      height: 40px;
+      width: 40px;
       opacity: 0;
-      transform: translate(-8px, 13px);
+      transform: translate(-8px, 17px);
       border-radius: 50%;
       pointer-events: none;
 
       svg {
-        transform: translateY(2px);
-        width: 24px;
+        transform: translateY(4px);
+        width: 22px;
+        height: 20px;
       }
     }
   }
@@ -93,13 +94,34 @@ nfs-tree {
     opacity: 1;
     pointer-events: auto;
     transition: all $speed $bezier;
-    transform: translate(-8px, 13px);
+    transform: translate(-8px, 15px);
+  }
+
+  .icon {
+    font-style: normal;
+    margin-right: 3px;
+    width: 22px;
+    display: inline-block;
   }
 
   .inner {
     display: flex;
     justify-content: flex-end;
     transition: margin $speed $bezier;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(white, .2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba($color-gradient, 0);
+    transition: all $speed $bezier;
   }
 
   .list {
@@ -124,19 +146,12 @@ nfs-tree {
     .item:last-child {
       margin-bottom: 20px;
     }
-  }
 
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(white, .2);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: $color-gradient;
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        background: rgba($color-gradient, 1);
+      }
+    }
   }
 
   .back {
@@ -154,6 +169,7 @@ nfs-tree {
     justify-content: flex-end;
     transition: background-color $speed $bezier, color $speed $bezier;
     border-bottom: 1px solid rgba($color-active, .2);
+    z-index: 2;
 
     &:after {
       content: '';
@@ -200,13 +216,21 @@ nfs-tree {
     cursor: pointer;
     transition: background-color $speed $bezier, color $speed $bezier;
 
+    svg {
+      width: 17px;
+      margin-right: 8px;
+      fill: $color-text;
+      transition: fill $speed $bezier;
+      position: relative;
+    }
+
     .title {
       display: flex;
       white-space: normal;
       max-width: 100%;
       padding: 8px 20px;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
 
     .inner-title {
@@ -217,13 +241,17 @@ nfs-tree {
 
     .arrow {
       font-size: 8px;
-      margin-left: 6px;
+      margin-left: auto;
     }
 
     &:hover,
     &.active {
       background-color: $color-active;
       color: white;
+
+      svg {
+        fill: white;
+      }
     }
   }
 

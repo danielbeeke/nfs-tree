@@ -1,4 +1,3682 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+/*
+ | File Icons
+ | @link https://github.com/file-icons
+ | @author Daniel Brooker https://github.com/DanBrooker
+ */
+/* ----------------------------[ Colors ]---------------------------------- */
+/*============================================================================*
+	PALETTE
+	Base16 colours from https://github.com/chriskempson/base16
+/*============================================================================*/
+.light-red:before {
+  color: #c97071;
+}
+
+.medium-red:before {
+  color: #ac4142;
+}
+
+.dark-red:before {
+  color: #742c2d;
+}
+
+.light-green:before {
+  color: #a6ba7b;
+}
+
+.medium-green:before {
+  color: #90a959;
+}
+
+.dark-green:before {
+  color: #66783e;
+}
+
+.light-yellow:before {
+  color: #fae0bc;
+}
+
+.medium-yellow:before {
+  color: #ee9e2e;
+}
+
+.dark-yellow:before {
+  color: #d88511;
+}
+
+.light-blue:before {
+  color: #6098b0;
+}
+
+.medium-blue:before {
+  color: #6a9fb5;
+}
+
+.dark-blue:before {
+  color: #46788d;
+}
+
+.light-maroon:before {
+  color: #be7953;
+}
+
+.medium-maroon:before {
+  color: #8f5536;
+}
+
+.dark-maroon:before {
+  color: #573421;
+}
+
+.light-purple:before {
+  color: #c7a4c0;
+}
+
+.medium-purple:before {
+  color: #aa759f;
+}
+
+.dark-purple:before {
+  color: #825078;
+}
+
+.light-orange:before {
+  color: #d99762;
+}
+
+.medium-orange:before {
+  color: #d28445;
+}
+
+.dark-orange:before {
+  color: #a35f27;
+}
+
+.light-cyan:before {
+  color: #6bb0a4;
+}
+
+.medium-cyan:before {
+  color: #75b5aa;
+}
+
+.dark-cyan:before {
+  color: #4d9085;
+}
+
+.light-pink:before {
+  color: #ff4ddb;
+}
+
+.medium-pink:before {
+  color: #ff00cc;
+}
+
+.dark-pink:before {
+  color: #b3008f;
+}
+
+.theme-colour-check {
+  background: #ffffff;
+}
+
+/* ----------------------------[ Fonts ]---------------------------------- */
+@font-face {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/fontawesome.woff2");
+}
+@font-face {
+  font-family: Mfizz;
+  src: url("../fonts/mfixx.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: Devicons;
+  src: url("../fonts/devopicons.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: file-icons;
+  src: url("../fonts/file-icons.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: octicons;
+  src: url("../fonts/octicons.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* ----------------------------[ Icons ]---------------------------------- */
+.icon:before {
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+  width: 16px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*============================================================================*
+  Octicons
+  https://github.com/github/octicons
+/*============================================================================*/
+.binary-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.book-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.brew-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+  font-size: 15px;
+  left: 1px;
+}
+
+.checklist-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+  font-size: 17px;
+  left: 1px;
+}
+
+.code-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.database-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.gear-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.git-commit-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.git-merge-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.github-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.graph-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.image-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.key-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.link-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.markdown-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.package-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.ruby-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.secret-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.squirrel-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+  font-size: 15px;
+}
+
+.text-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+.zip-icon:before {
+  font-family: octicons;
+  font-size: 16px;
+  top: 1px;
+  content: "";
+}
+
+/*============================================================================*
+  FontAwesome
+  http://fortawesome.github.io/Font-Awesome/cheatsheet
+/*============================================================================*/
+.android-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 16px;
+  top: 1px;
+}
+
+.at-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+  top: 1px;
+}
+
+.audio-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+  top: 1px;
+}
+
+.bullhorn-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 16px;
+  top: 2px;
+}
+
+.calc-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 14px;
+}
+
+.coffee-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 14px;
+  top: 1px;
+}
+
+.css3-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  top: 0;
+}
+
+.circle-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 16px;
+  top: 1px;
+}
+
+.earth-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+}
+
+.gears-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+}
+
+.html5-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+  top: 1px;
+}
+
+.mobile-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 20px;
+  top: 2px;
+}
+
+.moon-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 16px;
+  top: 1px;
+}
+
+.music-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+}
+
+.print-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.recycle-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.rss-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 16px;
+  top: 2px;
+}
+
+.smarty-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+}
+
+.sourcemap-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 14px;
+}
+
+.sun-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 14px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.toc-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.twig-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 14px;
+}
+
+.pdf-icon:before {
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "";
+  font-size: 14px;
+}
+
+/*============================================================================*
+  Mfizz
+  http://mfizz.com/oss/font-mfizz
+/*============================================================================*/
+.apache-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 3px;
+  font-size: 15px;
+}
+
+.archlinux-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "A";
+  top: 1px;
+  font-size: 15px;
+}
+
+.c-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+}
+
+.cpp-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.csharp-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.debian-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.elixir-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.gnome-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.haskell-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.java-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.js-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.msql-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 2px;
+  font-size: 15px;
+  text-shadow: 0 0 0;
+}
+
+.objc-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.osx-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.perl-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.python-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.red-hat-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 2px;
+}
+
+.scala-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.sql-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.svg-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+}
+
+.tt-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "TT";
+}
+
+.x11-icon:before {
+  font-family: Mfizz;
+  font-size: 14px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+}
+
+/*============================================================================*
+  Devicons
+  http://vorillaz.github.io/devicons
+/*============================================================================*/
+.angular-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.appcelerator-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.appstore-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.asp-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.atom-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.backbone-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.bootstrap-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.bower-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  text-shadow: 0 0 0;
+}
+
+.chrome-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.clojure-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.compass-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 14px;
+  top: 2px;
+}
+
+.dart-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.dlang-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.dojo-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 16px;
+  top: 4px;
+  transform: scale(1.2);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.dropbox-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.eclipse-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.erlang-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.extjs-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.fsharp-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  left: 1px;
+  top: 2px;
+}
+
+.git-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.heroku-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.jquery-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.jqueryui-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.laravel-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.materialize-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  transform: scale(1.2);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.modernizr-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.mootools-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  text-shadow: 0 0 0;
+}
+
+.node-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.pod-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.prolog-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.rails-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.raphael-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+}
+
+.requirejs-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.rust-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.sass-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.sencha-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.snapsvg-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.swift-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  left: -1px;
+}
+
+.travis-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.uikit-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 15px;
+  top: 2px;
+}
+
+.unity3d-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.vim-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+.vs-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 14px;
+  top: 2px;
+}
+
+.windows-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+  font-size: 14px;
+  top: 2px;
+}
+
+.yeoman-icon:before {
+  font-family: Devicons;
+  font-size: 16px;
+  top: 3px;
+  content: "";
+}
+
+/*============================================================================*
+  Custom file icons
+  See https://github.com/file-icons/source/#adding-new-icons
+/*============================================================================*/
+._1c-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "ꗪ";
+  top: 3px;
+  font-size: 16px;
+}
+
+._1c-alt-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.abap-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.access-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ada-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.ae-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ahk-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ai-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.alloy-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.alpine-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.ampl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  left: 1px;
+}
+
+.amx-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.ant-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 18px;
+  transform: scale(1.1);
+}
+
+.antlr-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.api-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.apl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "⍋";
+  top: 2px;
+}
+
+.apple-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+}
+
+.appveyor-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.arc-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.arduino-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.arttext-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "ⓐ";
+  top: 2px;
+}
+
+.as-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.asciidoc-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.ats-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.audacity-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.augeas-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.autoit-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.babel-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.bibtex-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.blender-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.bluespec-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+  left: 1px;
+}
+
+.boo-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.boot-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.brain-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.brakeman-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.bro-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.broccoli-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.byond-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.cabal-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.cake-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.cakefile-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.cakephp-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.cc-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.ceylon-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.cf-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.chai-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "c";
+  top: 3px;
+  font-size: 16px;
+}
+
+.chapel-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.chartjs-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.chuck-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.circleci-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.cirru-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  text-shadow: 0 0 0;
+}
+
+.cl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  text-shadow: 0 0 0;
+}
+
+.clarion-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.clean-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.click-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.clips-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 18px;
+}
+
+.cljs-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.cmake-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.codecov-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "☂";
+  top: 2px;
+}
+
+.composer-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.config-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.cordova-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.coq-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  left: 1px;
+}
+
+.cp-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.creole-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.crystal-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.csound-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.csscript-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.cucumber-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.cython-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.d3-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.darcs-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.dashboard-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 13px;
+}
+
+.dbase-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.default-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "🗌";
+  top: 2px;
+  font-size: 14px;
+}
+
+.diff-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.docker-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 18px;
+}
+
+.doxygen-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+}
+
+.doge-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.dyalog-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.dylib-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.e-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "E";
+  top: 1px;
+  font-size: 14px;
+}
+
+.eagle-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ec-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ecere-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.editorconfig-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.eiffel-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.electron-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+}
+
+.elm-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.em-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.ember-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.emacs-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.eq-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 5px;
+}
+
+.eslint-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.excel-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.fabfile-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.factor-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 18px;
+  left: -2px;
+  transform: scale(1.2);
+}
+
+.fancy-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.fantom-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.fbx-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ff-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "ﬀ";
+  top: 3px;
+}
+
+.finder-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.flow-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+}
+
+.flux-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.font-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.fortran-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.freemarker-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  left: 1px;
+}
+
+.frege-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  left: 1px;
+}
+
+.fuelux-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  left: 2px;
+  transform: scale(1.15);
+  text-shadow: 0 0 0;
+}
+
+.gams-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.gap-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  left: 1px;
+}
+
+.gdb-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  transform: scale(1.15);
+  text-shadow: 0 0 0;
+}
+
+.genshi-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.gentoo-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.gf-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.glade-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.glyphs-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "G";
+  top: 3px;
+}
+
+.gml-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.gn-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.gnu-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+}
+
+.go-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.godot-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.golo-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.gosu-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.gradle-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  left: 1px;
+}
+
+.graphql-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.graphviz-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 17px;
+  left: 1px;
+}
+
+.groovy-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 17px;
+  left: -1px;
+}
+
+.grunt-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.gulp-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.hack-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.haml-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.harbour-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+}
+
+.hashicorp-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.haxe-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.hy-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.idl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 18px;
+}
+
+.idris-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.igorpro-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.indesign-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.inform7-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+}
+
+.inno-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.io-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.ioke-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ionic-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.isabelle-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.j-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+}
+
+.jade-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.jake-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.jenkins-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 18px;
+  text-shadow: 0 0 0;
+}
+
+.jinja-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.jsonld-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.jsx-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.julia-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "⛬";
+  top: 1px;
+  font-size: 14px;
+}
+
+.jupyter-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.karma-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.keynote-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.khronos-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.kivy-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.knockout-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "K";
+  top: 2px;
+}
+
+.kotlin-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.krl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.labview-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.lasso-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.leaflet-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.lean-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "L";
+  top: 1px;
+  font-size: 13px;
+}
+
+.lein-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+  transform: scale(1.15);
+}
+
+.lfe-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.lightwave-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.lisp-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.llvm-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.logtalk-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  text-shadow: 0 0 0;
+}
+
+.lookml-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+}
+
+.ls-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.lsl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+}
+
+.lua-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.mako-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 16px;
+}
+
+.mapbox-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+}
+
+.marko-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 18px;
+  left: -1px;
+  transform: scale(1.05);
+}
+
+.mathematica-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.mathjax-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.matlab-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.max-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.maxscript-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.maya-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.manpage-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.mediawiki-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.mercury-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  transform: scale(1.2);
+}
+
+.metal-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "M";
+  top: 1px;
+  left: 1px;
+}
+
+.meteor-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+}
+
+.minecraft-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.mirah-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.mocha-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "⛾";
+  top: 2px;
+  font-size: 17px;
+}
+
+.model-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.modula2-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.monkey-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 18px;
+  left: -1px;
+}
+
+.mruby-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.mupad-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.mustache-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.nant-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  transform: scale(1.2);
+}
+
+.neko-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.netlogo-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.newrelic-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.nginx-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "󱑫";
+  top: 2px;
+}
+
+.nib-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "✒";
+  top: 2px;
+}
+
+.nimrod-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.nit-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.nix-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.nmap-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  transform: scale(1.1);
+}
+
+.nodemon-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.normalize-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.npm-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.nsis-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.numpy-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.nuget-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.nunjucks-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.nvidia-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.objj-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ocaml-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.onenote-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ooc-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.opa-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "☁";
+  top: 2px;
+}
+
+.opencl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.openoffice-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.org-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.owl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ox-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+}
+
+.oxygene-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.oz-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.pan-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.papyrus-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.parrot-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.pascal-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.patch-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.pawn-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "♟";
+  top: 1px;
+  font-size: 14px;
+}
+
+.perl6-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.phalcon-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.php-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.pickle-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.pike-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform: scale(1.15);
+}
+
+.pogo-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 14px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.pony-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.pointwise-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.postcss-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.postscript-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.povray-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "P";
+  top: 2px;
+  left: 1px;
+}
+
+.powerbuilder-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+}
+
+.powerpoint-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.powershell-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.premiere-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.processing-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.progress-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  transform: scale(1.2);
+}
+
+.propeller-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.protractor-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.psd-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.pug-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.pug-alt-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.puppet-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.purebasic-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "Ƶ";
+  top: 2px;
+}
+
+.purescript-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.r-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 17px;
+}
+
+.racket-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.raml-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.rascal-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.rdoc-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  left: 1px;
+}
+
+.react-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.rebol-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 13px;
+}
+
+.reason-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.red-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.regex-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "*";
+  top: 1px;
+  font-size: 12px;
+  left: 1px;
+}
+
+.rexx-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+  left: 1px;
+}
+
+.riot-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 18px;
+}
+
+.robot-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.rollup-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.rst-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.sage-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.saltstack-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.sas-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.sbt-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.scd-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.scad-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.scheme-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "λ";
+  top: 2px;
+}
+
+.scilab-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 18px;
+  left: -1px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.scrutinizer-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.self-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+  transform: scale(1.2);
+}
+
+.sf-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.shen-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.shopify-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.shuriken-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "✫";
+  top: 2px;
+  font-size: 14px;
+}
+
+.sigils-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "🝤";
+  top: 3px;
+  font-size: 16px;
+  text-shadow: 0 0 0;
+}
+
+.silverstripe-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.sketch-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.slash-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.snyk-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.sparql-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.sqf-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  text-shadow: 0 0 0;
+}
+
+.sqlite-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.stan-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.stata-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.storyist-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.strings-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.stylelint-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.stylus-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "s";
+  top: 2px;
+  left: 1px;
+}
+
+.sublime-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.svn-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.sysverilog-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.tag-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.tcl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.terminal-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 14px;
+}
+
+.tern-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "🕊";
+  top: 4px;
+  font-size: 16px;
+}
+
+.terraform-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.tex-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.textile-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "t";
+  top: 2px;
+}
+
+.textmate-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "™";
+  top: 2px;
+  font-size: 16px;
+}
+
+.thor-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.ts-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "ʦ";
+  top: 1px;
+  font-size: 14px;
+}
+
+.tsx-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.turing-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.txl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.typedoc-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.typings-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.uno-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.unreal-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "u";
+  top: 2px;
+}
+
+.urweb-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 4px;
+  font-size: 18px;
+  left: -1px;
+  text-shadow: 0 0 0;
+}
+
+.webpack-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.wercker-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.word-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.v8-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+  font-size: 16px;
+}
+
+.vagrant-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "V";
+  top: 2px;
+  font-size: 14px;
+}
+
+.varnish-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.verilog-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.vhdl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.video-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 1px;
+  font-size: 14px;
+}
+
+.vue-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 3px;
+}
+
+.x10-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "Ⅹ";
+  top: 2px;
+}
+
+.xmos-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "X";
+  top: 1px;
+  font-size: 14px;
+}
+
+.xojo-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.xpages-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.xtend-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.yang-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "☯";
+  top: 2px;
+}
+
+.yarn-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.yui-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+}
+
+.zbrush-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+}
+
+.zephir-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.zimpl-icon:before {
+  font-family: file-icons;
+  font-size: 15px;
+  content: "";
+  top: 2px;
+  font-size: 16px;
+  left: 1px;
+}
+
 html {
   height: 100%;
 }
@@ -39,11 +3717,11 @@ nfs-tree .select-folder {
   border: none;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), opacity 0.1s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+  z-index: 3;
 }
 nfs-tree .select-folder svg {
   fill: #96721f;
   transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
-  width: 50px;
 }
 nfs-tree .select-folder:hover {
   background-color: #96721f;
@@ -52,27 +3730,45 @@ nfs-tree .select-folder:hover svg {
   fill: #efb42c;
 }
 nfs-tree[handle=filled] .select-folder {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   opacity: 0;
-  transform: translate(-8px, 13px);
+  transform: translate(-8px, 17px);
   border-radius: 50%;
   pointer-events: none;
 }
 nfs-tree[handle=filled] .select-folder svg {
-  transform: translateY(2px);
-  width: 24px;
+  transform: translateY(4px);
+  width: 22px;
+  height: 20px;
 }
 nfs-tree[handle=filled][data-depth="1"] .select-folder {
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
-  transform: translate(-8px, 13px);
+  transform: translate(-8px, 15px);
+}
+nfs-tree .icon {
+  font-style: normal;
+  margin-right: 3px;
+  width: 22px;
+  display: inline-block;
 }
 nfs-tree .inner {
   display: flex;
   justify-content: flex-end;
   transition: margin 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+}
+nfs-tree ::-webkit-scrollbar {
+  width: 6px;
+}
+nfs-tree ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+}
+nfs-tree ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(192, 146, 40, 0);
+  transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .list {
   max-height: 100%;
@@ -94,14 +3790,7 @@ nfs-tree .list .item:nth-child(2) {
 nfs-tree .list .item:last-child {
   margin-bottom: 20px;
 }
-nfs-tree ::-webkit-scrollbar {
-  width: 6px;
-}
-nfs-tree ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.2);
-}
-nfs-tree ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+nfs-tree .list:hover::-webkit-scrollbar-thumb {
   background: #c09228;
 }
 nfs-tree .back {
@@ -119,6 +3808,7 @@ nfs-tree .back {
   justify-content: flex-end;
   transition: background-color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
   border-bottom: 1px solid rgba(150, 114, 31, 0.2);
+  z-index: 2;
 }
 nfs-tree .back:after {
   content: "";
@@ -160,13 +3850,20 @@ nfs-tree .item {
   cursor: pointer;
   transition: background-color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
+nfs-tree .item svg {
+  width: 17px;
+  margin-right: 8px;
+  fill: #383838;
+  transition: fill 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+  position: relative;
+}
 nfs-tree .item .title {
   display: flex;
   white-space: normal;
   max-width: 100%;
   padding: 8px 20px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 nfs-tree .item .inner-title {
   max-width: 100%;
@@ -175,11 +3872,14 @@ nfs-tree .item .inner-title {
 }
 nfs-tree .item .arrow {
   font-size: 8px;
-  margin-left: 6px;
+  margin-left: auto;
 }
 nfs-tree .item:hover, nfs-tree .item.active {
   background-color: #96721f;
   color: white;
+}
+nfs-tree .item:hover svg, nfs-tree .item.active svg {
+  fill: white;
 }
 
 @keyframes appear {

@@ -1,4 +1,5 @@
 import {render, html, svg} from './vendor/lighterhtml.js';
+import {fileIcons} from './vendor/file-icons.js';
 
 class NfsTree extends HTMLElement {
 
@@ -40,7 +41,7 @@ class NfsTree extends HTMLElement {
             ${this.slices.map((slice, sliceIndex) => this.folderList(slice, sliceIndex))}
         </div>` : ''
     }
-    <button class="select-folder" onclick="${() => this.showFolderDialog()}">${folderIcon}</button>
+    <button class="select-folder" onclick="${() => this.showFolderDialog()}">${selectFolderIcon}</button>
     `)
   }
 
@@ -108,7 +109,13 @@ class NfsTree extends HTMLElement {
           <li class="item ${leaf.handle.isDirectory ? 'directory' : 'file'} ${leaf.active ? 'active' : ''}" 
           onclick="${() => this.toggleActive(leaf, sliceIndex + 1)}">
             <span class="title">
-              <span class="inner-title">${leaf.handle.name}</span>
+              ${ leaf.handle.isDirectory ?
+                folderIcon :
+                html`<i class="icon ${fileIcons.getClass(leaf.handle.name)}"></i>`
+              }
+
+              <span class="inner-title">              
+              ${leaf.handle.name}</span>
               ${leaf.handle.isDirectory ? html`<span class="arrow">▶</span>` : ''}
             </span>
           </li>
@@ -189,6 +196,8 @@ class NfsTree extends HTMLElement {
 
 }
 
-const folderIcon = svg`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" width="45" height="45" viewBox="0 0 45 45" xml:space="preserve"><path d="M44.5 13.4c-0.5-0.6-1.2-0.9-1.9-0.9H40c0-1.4-1.1-2.5-2.5-2.5H30c-1.4 0-2.5 1.1-2.5 2.5h-15c-1.2 0-2.2 0.8-2.4 2 0 0-5.1 22.9-5.1 23H2.5v-30H35C35 6.1 33.9 5 32.5 5h-30C1.1 5 0 6.1 0 7.5v30C0 38.9 1.1 40 2.5 40h5 25 5c1.2 0 2.2-0.8 2.4-2l5-22.5C45.1 14.8 44.9 14 44.5 13.4zM37.3 20.8h-2.4v2.4c0 0.7-0.5 1.2-1.2 1.2s-1.2-0.5-1.2-1.2v-2.4h-2.4c-0.7 0-1.2-0.5-1.2-1.2 0-0.7 0.5-1.2 1.2-1.2h2.4v-2.4c0-0.7 0.5-1.2 1.2-1.2s1.2 0.5 1.2 1.2v2.4h2.4c0.7 0 1.2 0.5 1.2 1.2C38.5 20.2 38 20.8 37.3 20.8z"/></svg>`;
+const selectFolderIcon = svg`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" width="45" height="45" viewBox="0 0 45 45" xml:space="preserve"><path d="M44.5 13.4c-0.5-0.6-1.2-0.9-1.9-0.9H40c0-1.4-1.1-2.5-2.5-2.5H30c-1.4 0-2.5 1.1-2.5 2.5h-15c-1.2 0-2.2 0.8-2.4 2 0 0-5.1 22.9-5.1 23H2.5v-30H35C35 6.1 33.9 5 32.5 5h-30C1.1 5 0 6.1 0 7.5v30C0 38.9 1.1 40 2.5 40h5 25 5c1.2 0 2.2-0.8 2.4-2l5-22.5C45.1 14.8 44.9 14 44.5 13.4zM37.3 20.8h-2.4v2.4c0 0.7-0.5 1.2-1.2 1.2s-1.2-0.5-1.2-1.2v-2.4h-2.4c-0.7 0-1.2-0.5-1.2-1.2 0-0.7 0.5-1.2 1.2-1.2h2.4v-2.4c0-0.7 0.5-1.2 1.2-1.2s1.2 0.5 1.2 1.2v2.4h2.4c0.7 0 1.2 0.5 1.2 1.2C38.5 20.2 38 20.8 37.3 20.8z"/></svg>`;
+
+const folderIcon = svg`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="0px" y="0px"><path d="M448 119c0-13.3-9.4-23-22.8-23H230.9c-2.8 0-4.3-.6-6.1-2.4l-22.5-22.5-.2-.2c-4.9-4.6-8.9-6.9-17.3-6.9H88.7C74.9 64 64 74.3 64 87v73h384v-41zM64 188h-8.3c-12.8 0-25.3 5.1-23.5 24.3C34 231.5 55.7 423 55.7 423c2.7 17.8 11.7 25 25 25h352.5c12.7 0 21-7.8 23-25 0 0 22.2-184.9 23.6-205.5 1.4-20.5-8.9-29.5-23.6-29.5H64z"/></svg>`;
 
 customElements.define('nfs-tree', NfsTree);

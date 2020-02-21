@@ -13,5 +13,8 @@
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^0.9.1",
     "gulp-sass-glob": "^1.1.0"
+  },
+  "dependencies": {
+    "file-icons-js": "github:websemantics/file-icons-js"
   }
 }
