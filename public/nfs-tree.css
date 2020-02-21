@@ -16,7 +16,7 @@ body {
 
 nfs-tree {
   height: 100%;
-  width: 240px;
+  width: 340px;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -67,11 +67,12 @@ nfs-tree[handle=filled][data-depth="1"] .select-folder {
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+  transform: translate(-8px, 13px);
 }
 nfs-tree .inner {
   display: flex;
   justify-content: flex-end;
-  min-width: 1000vw;
+  transition: margin 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .list {
   max-height: 100%;
@@ -81,7 +82,7 @@ nfs-tree .list {
   scrollbar-width: none;
   padding: 0;
   margin: 0;
-  width: 240px;
+  width: 340px;
   animation: appear 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .list.remove {
@@ -101,7 +102,7 @@ nfs-tree ::-webkit-scrollbar-track {
 }
 nfs-tree ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #96721f;
+  background: #c09228;
 }
 nfs-tree .back {
   color: #96721f;
@@ -112,7 +113,7 @@ nfs-tree .back {
   background: #efb42c;
   list-style: none;
   font-style: italic;
-  width: 240px;
+  width: 340px;
   height: 35px;
   display: flex;
   justify-content: flex-end;
@@ -138,16 +139,16 @@ nfs-tree .back .title {
 }
 nfs-tree .back .arrow {
   font-size: 8px;
-  height: 35px;
-  line-height: 35px;
-  width: 27px;
-  padding-left: 20px;
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
   cursor: pointer;
   font-style: normal;
   margin-left: auto;
-  margin-right: -20px;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  text-align: center;
+  margin-right: -10px;
+  transition: background-color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
+  border-radius: 50%;
 }
 nfs-tree .back .arrow:hover {
   background-color: #96721f;
@@ -155,15 +156,22 @@ nfs-tree .back .arrow:hover {
 }
 nfs-tree .item {
   list-style: none;
-  width: 240px;
+  width: 340px;
   cursor: pointer;
   transition: background-color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86), color 0.4s cubic-bezier(0.74, 0.11, 0.39, 0.86);
 }
 nfs-tree .item .title {
   display: flex;
+  white-space: normal;
+  max-width: 100%;
   padding: 8px 20px;
   align-items: center;
   justify-content: space-between;
+}
+nfs-tree .item .inner-title {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 nfs-tree .item .arrow {
   font-size: 8px;
@@ -180,13 +188,13 @@ nfs-tree .item:hover, nfs-tree .item.active {
     opacity: 0;
   }
   100% {
-    width: 240px;
+    width: 340px;
     opacity: 1;
   }
 }
 @keyframes disappear {
   0% {
-    width: 240px;
+    width: 340px;
     opacity: 1;
   }
   100% {

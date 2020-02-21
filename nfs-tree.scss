@@ -7,7 +7,7 @@
   -20px -20px 60px $color-gradient3;
 }
 
-$width: 240px;
+$width: 340px;
 $bezier: cubic-bezier(.74,.11,.39,.86);
 $padding: 20px;
 $color-background: #efb42c;
@@ -93,12 +93,13 @@ nfs-tree {
     opacity: 1;
     pointer-events: auto;
     transition: all $speed $bezier;
+    transform: translate(-8px, 13px);
   }
 
   .inner {
     display: flex;
     justify-content: flex-end;
-    min-width: 1000vw;
+    transition: margin $speed $bezier;
   }
 
   .list {
@@ -135,7 +136,7 @@ nfs-tree {
 
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: $color-active;
+    background: $color-gradient;
   }
 
   .back {
@@ -175,16 +176,16 @@ nfs-tree {
 
     .arrow {
       font-size: 8px;
-      height: 35px;
-      line-height: 35px;
-      width: 27px;
-      padding-left: 20px;
+      height: 30px;
+      line-height: 30px;
+      width: 30px;
       cursor: pointer;
       font-style: normal;
       margin-left: auto;
-      margin-right: -20px;
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
+      text-align: center;
+      margin-right: -10px;
+      transition: background-color $speed $bezier, color $speed $bezier;
+      border-radius: 50%;
 
       &:hover {
         background-color: $color-active;
@@ -201,9 +202,17 @@ nfs-tree {
 
     .title {
       display: flex;
+      white-space: normal;
+      max-width: 100%;
       padding: 8px 20px;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .inner-title {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .arrow {

@@ -9,6 +9,14 @@ class NfsTree extends HTMLElement {
     super();
     this.handle = null;
     this.slices = [];
+    this.showHiddenFiles = false;
+    window.addEventListener('keydown', event => {
+      if (event.key === '.' && event.metaKey) {
+        event.preventDefault();
+        this.showHiddenFiles = !this.showHiddenFiles;
+        this.draw();
+      }
+    });
   }
 
   /**
@@ -49,6 +57,21 @@ class NfsTree extends HTMLElement {
       });
     }
 
+    branch.sort((a, b) => {
+      let aName = a.handle.name.toLowerCase();
+      let bName = b.handle.name.toLowerCase();
+
+      let aType = a.handle.isDirectory;
+      let bType = b.handle.isDirectory;
+
+      if (aType > bType) { return -1; }
+      if (aType < bType) { return 1; }
+
+      if (aName < bName) { return -1; }
+      if (aName > bName) { return 1; }
+      return 0;
+    });
+
     return branch;
   }
 
@@ -81,11 +104,11 @@ class NfsTree extends HTMLElement {
     return html`
       <ul class="list ${shouldBeRemoved ? 'remove' : ''}">
         ${backButton}
-        ${slice.map(leaf => html`
+        ${slice.filter(leaf => !(!this.showHiddenFiles && leaf.handle.name.substr(0, 1) === '.')).map(leaf => html`
           <li class="item ${leaf.handle.isDirectory ? 'directory' : 'file'} ${leaf.active ? 'active' : ''}" 
           onclick="${() => this.toggleActive(leaf, sliceIndex + 1)}">
             <span class="title">
-              ${leaf.handle.name}
+              <span class="inner-title">${leaf.handle.name}</span>
               ${leaf.handle.isDirectory ? html`<span class="arrow">▶</span>` : ''}
             </span>
           </li>
